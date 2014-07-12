@@ -8,18 +8,49 @@ var scrabbleScore = function(word) {
 	var eightPt = {"j": 8, "x": 8};
 	var tenPt = {"q": 10, "z": 10};
 
+	//Dictionary manipulation
+	var onePtKeyArr = Object.keys(onePt);
+	var twoPtKeyArr = Object.keys(twoPt);
+	var threePtKeyArr = Object.keys(threePt);
+	var fourPtKeyArr = Object.keys(fourPt);
+	var fivePtKeyArr = Object.keys(fivePt);
+	var eightPtKeyArr = Object.keys(eightPt);
+	var tenPtKeyArr = Object.keys(tenPt);
+
+	var mixedAlphabet = onePtKeyArr + twoPtKeyArr + threePtKeyArr + fourPtKeyArr + fivePtKeyArr + eightPtKeyArr + tenPtKeyArr;
+
 	//User input manipulation
 	var wordSplit = word.toLowerCase().split("");
 
+	//New array to help compile score
 	var ptArr = [];
 
-	for (var j = 0; j < wordSplit.length; j++) {
-		if (wordSplit[j]) {
-			ptArr.push(onePt[wordSplit[j]]);
-			console.log(ptArr);
+	for (var i = 0; i < wordSplit.length; i++) {
+		for (var j in mixedAlphabet) {
+			if (wordSplit[i] === onePtKeyArr[j]) {
+				ptArr.push(onePt[wordSplit[i]]);
+			}
+			else if (wordSplit[i] === twoPtKeyArr[j]) {
+				ptArr.push(twoPt[wordSplit[i]]);
+			}
+			else if (wordSplit[i] === threePtKeyArr[j]) {
+				ptArr.push(threePt[wordSplit[i]]);
+			}
+			else if (wordSplit[i] === fourPtKeyArr[j]) {
+				ptArr.push(fourPt[wordSplit[i]]);
+			}
+			else if (wordSplit[i] === fivePtKeyArr[j]) {
+				ptArr.push(fivePt[wordSplit[i]]);
+			}
+			else if (wordSplit[i] === eightPtKeyArr[j]) {
+				ptArr.push(eightPt[wordSplit[i]]);
+			}
+			else if (wordSplit[i] === tenPtKeyArr[j]) {
+				ptArr.push(tenPt[wordSplit[i]]);
+			}
 		}
 	}
-
+	//sums the numbers within ptArr
 	var totalScore = ptArr.reduce(function(previousValue, currentValue, index, array) {
 		return previousValue + currentValue;
 	})
