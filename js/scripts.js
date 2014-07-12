@@ -8,13 +8,23 @@ var scrabbleScore = function(word) {
 	var eightPt = {"j": 8, "x": 8};
 	var tenPt = {"q": 10, "z": 10};
 
+	//Dictionary manipulation
+	var onePtKeyArr = Object.keys(onePt);
+	var twoPtKeyArr = Object.keys(twoPt);
+	var threePtKeyArr = Object.keys(threePt);
+	var fourPtKeyArr = Object.keys(fourPt);
+	var fivePtKeyArr = Object.keys(fivePt);
+	var eightPtKeyArr = Object.keys(eightPt);
+	var tenPtKeyArr = Object.keys(tenPt);
+
 	//User input manipulation
 	var wordSplit = word.toLowerCase().split("");
 
+	//New array to help compile score
 	var ptArr = [];
 
 	for (var j = 0; j < wordSplit.length; j++) {
-		if (wordSplit[j]) {
+		if (wordSplit[j] === onePt.keys()) {
 			ptArr.push(onePt[wordSplit[j]]);
 			console.log(ptArr);
 		}
