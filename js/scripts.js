@@ -31,6 +31,9 @@ var scrabbleScore = function(word) {
 			else if (wordSplit[i] === twoPtKeyArr[j]) {
 			ptArr.push(twoPt[wordSplit[i]]);
 			}
+			else if (wordSplit[i] === threePtKeyArr[j]) {
+			ptArr.push(threePt[wordSplit[i]]);
+			}
 	}
 
 	var totalScore = ptArr.reduce(function(previousValue, currentValue, index, array) {

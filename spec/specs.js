@@ -2,8 +2,11 @@ describe("scrabbleScore", function() {
 	it('takes a word and returns the scrabble score for it', function() {
 		scrabbleScore("sun").should.equal(3)
 	});
-	it('takes a word that contains letters with a value of 2 or less points and returns the correct scrabble score', function() {
+	it('takes a word that contains letters with a value of 2pts or less and returns the correct scrabble score', function() {
 		scrabbleScore("dig").should.equal(5)
+	});
+	it('takes a word that contains letters with a value of 3pts or less and returns the correct scrabble score', function() {
+		scrabbleScore("badger").should.equal(10)
 	});
 });
 
