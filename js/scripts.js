@@ -17,6 +17,8 @@ var scrabbleScore = function(word) {
 	var eightPtKeyArr = Object.keys(eightPt);
 	var tenPtKeyArr = Object.keys(tenPt);
 
+	var mixedAlphabet = onePtKeyArr + twoPtKeyArr + threePtKeyArr + fourPtKeyArr + fivePtKeyArr + eightPtKeyArr + tenPtKeyArr;
+
 	//User input manipulation
 	var wordSplit = word.toLowerCase().split("");
 
@@ -24,18 +26,31 @@ var scrabbleScore = function(word) {
 	var ptArr = [];
 
 	for (var i = 0; i < wordSplit.length; i++) {
-		for (var j in onePtKeyArr || twoPtKeyArr)
+		for (var j in mixedAlphabet) {
 			if (wordSplit[i] === onePtKeyArr[j]) {
-			ptArr.push(onePt[wordSplit[i]]);
-		}
+				ptArr.push(onePt[wordSplit[i]]);
+			}
 			else if (wordSplit[i] === twoPtKeyArr[j]) {
-			ptArr.push(twoPt[wordSplit[i]]);
+				ptArr.push(twoPt[wordSplit[i]]);
 			}
 			else if (wordSplit[i] === threePtKeyArr[j]) {
-			ptArr.push(threePt[wordSplit[i]]);
+				ptArr.push(threePt[wordSplit[i]]);
 			}
+			else if (wordSplit[i] === fourPtKeyArr[j]) {
+				ptArr.push(fourPt[wordSplit[i]]);
+			}
+			else if (wordSplit[i] === fivePtKeyArr[j]) {
+				ptArr.push(fivePt[wordSplit[i]]);
+			}
+			else if (wordSplit[i] === eightPtKeyArr[j]) {
+				ptArr.push(eightPt[wordSplit[i]]);
+			}
+			else if (wordSplit[i] === tenPtKeyArr[j]) {
+				ptArr.push(tenPt[wordSplit[i]]);
+			}
+		}
 	}
-
+	//sums the numbers within ptArr
 	var totalScore = ptArr.reduce(function(previousValue, currentValue, index, array) {
 		return previousValue + currentValue;
 	})
