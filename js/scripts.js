@@ -23,11 +23,14 @@ var scrabbleScore = function(word) {
 	//New array to help compile score
 	var ptArr = [];
 
-	for (var j = 0; j < wordSplit.length; j++) {
-		if (wordSplit[j] === onePt.keys()) {
-			ptArr.push(onePt[wordSplit[j]]);
-			console.log(ptArr);
+	for (var i = 0; i < wordSplit.length; i++) {
+		for (var j in onePtKeyArr || twoPtKeyArr)
+			if (wordSplit[i] === onePtKeyArr[j]) {
+			ptArr.push(onePt[wordSplit[i]]);
 		}
+			else if (wordSplit[i] === twoPtKeyArr[j]) {
+			ptArr.push(twoPt[wordSplit[i]]);
+			}
 	}
 
 	var totalScore = ptArr.reduce(function(previousValue, currentValue, index, array) {
