@@ -13,12 +13,16 @@ var scrabbleScore = function(word) {
 
 	var ptArr = [];
 
-	for (var i = 0; i < word.length; i++) {
-		if (wordSplit[i] === onePt[i]) {
-			ptArr.push(onePt.valueOf[i]);
+	for (var j = 0; j < wordSplit.length; j++) {
+		if (wordSplit[j]) {
+			ptArr.push(onePt[wordSplit[j]]);
 			console.log(ptArr);
-			return ptArr;
 		}
 	}
-	
+
+	var totalScore = ptArr.reduce(function(previousValue, currentValue, index, array) {
+		return previousValue + currentValue;
+	})
+
+	return totalScore;
 }
