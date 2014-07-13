@@ -31,9 +31,14 @@ describe("scrabbleScore", function() {
 		scrabbleScore("HELLO").should.equal(8)
 	});
 
-	it('takes an input that is not a word and encourages the user to try again', function() {
-		scrabbleScore("%^&78").should.eql([])
+	it('takes an input that contains symbols and encourages the user to try again', function() {
+		scrabbleScore("%^&*(").should.eql([])
 	});
+
+	it('takes an input that contains numbers and encourages the user to try again', function() {
+		scrabbleScore("34567").should.eql([])
+	});
+
 });
 
 // Goal of Scrabble Score: 
