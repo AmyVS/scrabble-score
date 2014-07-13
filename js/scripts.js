@@ -31,7 +31,7 @@ var scrabbleScore = function(word) {
 	for (var i = 0; i < wordSplit.length; i++) {
 		if ((wordSplit[i].match(/\W/g)) || (wordSplit[i].match(/[0-9]/))) {
 			alert("That's not a word! Please try again.");
-			return ptArr;
+			return "nothing!";
 		}
 		else {
 			for (var j in mixedAlphaArr) {
@@ -57,9 +57,13 @@ $(document).ready(function() {
 		var word = $("input#word").val();
 		var result = scrabbleScore(word);
 
+		$(".word").text(word);
 		$(".answer").text(result);
 
-		$("#result").show();
+		$("button").click(function() {
+			$("#result").show();
+		});
+
 		event.preventDefault();
 	});
 
