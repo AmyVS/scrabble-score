@@ -17,7 +17,10 @@ var scrabbleScore = function(word) {
 	var eightPtKeyArr = Object.keys(eightPt);
 	var tenPtKeyArr = Object.keys(tenPt);
 
-	var mixedAlphabet = onePtKeyArr + twoPtKeyArr + threePtKeyArr + fourPtKeyArr + fivePtKeyArr + eightPtKeyArr + tenPtKeyArr;
+	var mixedAlphaArr = onePtKeyArr.concat(twoPtKeyArr, threePtKeyArr, fourPtKeyArr, fivePtKeyArr, eightPtKeyArr, tenPtKeyArr);
+	var mixedPtDict = {"a": 1, "e": 1, "i": 1, "o": 1, "u": 1, "l": 1, "n": 1, "r": 1, "s": 1, "t": 1, "d": 2, "g": 2, "b": 3, "c": 3, "m": 3, "p": 3, "f": 4, "h": 4, "v": 4, "w": 4, "y": 4, "k": 5, "j": 8, "x": 8, "q": 10, "z": 10};
+	//^^^ Searched for a non-jquery way to concat objects and came up empty, for now...
+
 
 	//User input manipulation
 	var wordSplit = word.toLowerCase().split("");
@@ -25,35 +28,22 @@ var scrabbleScore = function(word) {
 	//New array to help compile score
 	var ptArr = [];
 
+
 	for (var i = 0; i < wordSplit.length; i++) {
-		for (var j in mixedAlphabet) {
-			if (wordSplit[i] === onePtKeyArr[j]) {
-				ptArr.push(onePt[wordSplit[i]]);
-			}
-			else if (wordSplit[i] === twoPtKeyArr[j]) {
-				ptArr.push(twoPt[wordSplit[i]]);
-			}
-			else if (wordSplit[i] === threePtKeyArr[j]) {
-				ptArr.push(threePt[wordSplit[i]]);
-			}
-			else if (wordSplit[i] === fourPtKeyArr[j]) {
-				ptArr.push(fourPt[wordSplit[i]]);
-			}
-			else if (wordSplit[i] === fivePtKeyArr[j]) {
-				ptArr.push(fivePt[wordSplit[i]]);
-			}
-			else if (wordSplit[i] === eightPtKeyArr[j]) {
-				ptArr.push(eightPt[wordSplit[i]]);
-			}
-			else if (wordSplit[i] === tenPtKeyArr[j]) {
-				ptArr.push(tenPt[wordSplit[i]]);
+		for (var j in mixedAlphaArr) {
+			if (wordSplit[i] === mixedAlphaArr[j]) {
+				ptArr.push(mixedPtDict[wordSplit[i]]);
 			}
 		}
 	}
 	//sums the numbers within ptArr
 	var totalScore = ptArr.reduce(function(previousValue, currentValue, index, array) {
 		return previousValue + currentValue;
-	})
+	});
 
 	return totalScore;
 }
+
+$(document).ready(function() {
+
+})
