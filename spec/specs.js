@@ -32,11 +32,11 @@ describe("scrabbleScore", function() {
 	});
 
 	it('takes an input that contains symbols and encourages the user to try again', function() {
-		scrabbleScore("%^&*(").should.eql([])
+		scrabbleScore("%^&*(").should.equal("nothing!")
 	});
 
 	it('takes an input that contains numbers and encourages the user to try again', function() {
-		scrabbleScore("34567").should.eql([])
+		scrabbleScore("34567").should.equal("nothing!")
 	});
 
 });

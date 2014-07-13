@@ -1,0 +1,55 @@
+img {
+	max-width: 100%;
+	height: auto;
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	background-color: #D7ECFA;
+	font-weight: bold;
+	font-size: 4em;
+	padding: 10px 0 10px 30px;
+	margin: 0;
+}
+
+body {
+	font-size: 1.5em;
+	font-family: Courier;
+	background-color: #FAE5D7;
+}
+
+form {
+	margin: 40px 0;
+}
+
+button {
+	margin: 0 0 15px 0;
+}
+
+ul {
+	list-style-type: none;
+	margin: 15px 0 20px;
+}
+
+#result {
+	display: none;
+	font-weight: bold;
+	margin: 20px 0 40px;
+	border: 2px solid #69482C;
+	padding: 20px;
+	background-color: #D7ECFA;
+	box-shadow: 10px 10px 5px #69482C;
+}
+
+.answer {
+	padding: 0 0 0 30px;
+	font-size: 2em;
+}
+
+footer {
+	padding: 20px 20px;
+	font-weight: bold;
+	text-align: right;
+	background-color: #F2BF91
+}
