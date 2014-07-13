@@ -36,14 +36,26 @@ var scrabbleScore = function(word) {
 			}
 		}
 	}
+
+
+
 	//sums the numbers within ptArr
 	var totalScore = ptArr.reduce(function(previousValue, currentValue, index, array) {
 		return previousValue + currentValue;
 	});
-
+	
 	return totalScore;
-}
+};
 
 $(document).ready(function() {
+	$("form#scrabble-score").submit(function(event) {
+		var word = $("input#word").val();
+		var result = scrabbleScore(word);
 
-})
+		$(".answer").text(result);
+
+		$("#result").show();
+		event.preventDefault();
+	});
+
+});
