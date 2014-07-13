@@ -32,7 +32,7 @@ describe("scrabbleScore", function() {
 	});
 
 	it('takes an input that is not a word and encourages the user to try again', function() {
-		scrabbleScore("%^&78").should.equal(false)
+		scrabbleScore("%^&78").should.eql([])
 	});
 });
 

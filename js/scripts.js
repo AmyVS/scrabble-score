@@ -23,16 +23,23 @@ var scrabbleScore = function(word) {
 
 
 	//User input manipulation
-	var wordSplit = word.toLowerCase().split("");
+	var wordSplit = word./*trim().replace(/\W/g, '').*/toLowerCase().split("");
+	// ^^^^ Grayed out text helps to solve problems where symbols are mixed with letters.
 
 	//New array to help compile score
 	var ptArr = [];
 
-
 	for (var i = 0; i < wordSplit.length; i++) {
-		for (var j in mixedAlphaArr) {
-			if (wordSplit[i] === mixedAlphaArr[j]) {
-				ptArr.push(mixedPtDict[wordSplit[i]]);
+		if (wordSplit[i].match(/\W/g)) {
+			alert("That's not a word! Please try again.");
+			return ptArr;
+		}
+
+		else {
+			for (var j in mixedAlphaArr) {
+				if (wordSplit[i] === mixedAlphaArr[j]) {
+					ptArr.push(mixedPtDict[wordSplit[i]]);
+				}
 			}
 		}
 	}
