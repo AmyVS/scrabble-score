@@ -4,6 +4,6 @@ My name is Amy Vaillancourt-Sals, and I had the pleasure of creating this nifty 
 
 Hope you like it, and thanks for taking the time to read my README.md file! 
 
-p.s. Sorry about the letter and comma spacing inconsistencies on the final product page:
+Final product:
 
 http://amyvs.github.io/scrabble-score/
